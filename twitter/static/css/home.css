@@ -1,0 +1,89 @@
+@font-face {
+    font-family: chirp;
+    src: url("../fonts/chirp-regular-web.woff");
+}
+
+@font-face {
+    font-family: chirp-medium;
+    src: url("../fonts/chirp-medium-web.woff");
+}
+
+@font-face {
+    font-family: chirp-bold;
+    src: url("../fonts/chirp-bold-web.woff")
+}
+
+@font-face {
+    font-family: chirp-heavy;
+    src: url("../fonts/chirp-heavy-web.woff")
+}
+
+
+body {
+    font-family: chirp;
+    background-color: aqua;
+}
+.flex-container{
+    display: flex; 
+    min-height: 100vh;
+}
+
+.flex-child-magenta{
+flex-grow: 1.4;
+align-items: center;
+}
+
+img{
+    margin-top: 30%;
+    margin-left: 30%;
+}
+h1{
+    font-family: chirp-heavy;
+    font-size: 50px;
+    margin-top: 20%;
+    margin-left: 3%;
+}
+
+h2{
+    font-family: chirp-heavy;
+    font-size: 30px;
+    margin-top: 10%;
+    margin-left: 3%;
+}
+
+p{
+    font-family: chirp-heavy;
+    margin-top: 8%;
+    margin-left: 3%;
+}
+.flex-child-green{
+flex-grow: 0.7;
+height: 100vh;
+}
+
+
+.signup-btn{
+    font-family: chirp-bold;
+    font-size: 15px;
+    background-color: #359cf0;
+    color: white;
+    margin-top: 5%;
+    margin-left: 3%;
+    height: 45px;
+    width: 300px;
+    border-radius: 120px;
+    border: none;
+}
+
+.login-btn{
+    background-color: white;
+    color: #359cf0;
+    float: left;
+    margin-top: 1%;
+    margin-left: 3%;
+    height: 45px;
+    width: 300px;
+    border-radius: 120px;
+    border: 1px solid grey;
+}
+

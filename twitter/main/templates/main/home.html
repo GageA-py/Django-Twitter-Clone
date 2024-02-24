@@ -1,0 +1,19 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block title %}Home{% endblock %}
+{% block content %} 
+<div class="flex-container">
+    <div class="flex-child-magenta">
+        <img src="{% static '/images/X_logo_2023_original.svg' %}" alt="">
+    </div>
+
+    <div class="flex-child-green">
+    <h1>Happening now</h1>
+    <h2>Join today.</h2>
+    <button class="signup-btn" type="submit">Create Account</button>
+    <br><p>Already have an account?</p>
+    <button class="login-btn" type="submit">Login</button>
+    </div>
+
+</div>
+{% endblock %}
