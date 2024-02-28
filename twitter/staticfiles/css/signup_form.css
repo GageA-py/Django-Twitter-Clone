@@ -1,0 +1,15 @@
+
+
+.form-container {
+    border: 1px solid yellow;
+    padding: 20px;
+    margin: 10% auto;
+    max-width: 600px;
+}
+
+.registration-form {
+}
+
+.btn-primary {
+    margin-top: 20px;
+}

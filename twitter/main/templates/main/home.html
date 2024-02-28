@@ -1,4 +1,4 @@
-{% extends 'main/base.html' %}
+{% extends 'base.html' %}
 {% load static %}
 {% block title %}Home{% endblock %}
 {% block content %} 
@@ -10,10 +10,20 @@
     <div class="flex-child-green">
     <h1>Happening now</h1>
     <h2>Join today.</h2>
-    <button class="signup-btn" type="submit">Create Account</button>
+    <button class="signup-btn" onclick="redirectToSignup()" type="submit">Create Account</button>
     <br><p>Already have an account?</p>
-    <button class="login-btn" type="submit">Login</button>
+    <button class="login-btn" onclick="redirectToLogin()" type="submit">Login</button>
     </div>
-
+    <script>
+        function redirectToSignup() {
+            window.location.href = "{% url 'signup' %}";
+        }
+        </script>
+    <script>
+        function redirectToLogin() {
+            window.location.href = "{% url 'login' %}";
+        }
+        </script>
+    
 </div>
 {% endblock %}

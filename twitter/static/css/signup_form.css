@@ -1,0 +1,76 @@
+@font-face {
+    font-family: chirp;
+    src: url("../fonts/chirp-regular-web.woff");
+}
+
+@font-face {
+    font-family: chirp-medium;
+    src: url("../fonts/chirp-medium-web.woff");
+}
+
+@font-face {
+    font-family: chirp-bold;
+    src: url("../fonts/chirp-bold-web.woff")
+}
+
+@font-face {
+    font-family: chirp-heavy;
+    src: url("../fonts/chirp-heavy-web.woff")
+}
+
+
+h2 {
+    font-family: chirp-bold;
+    font-size: 32px;
+    margin-right: 5%;
+}
+
+
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid grey;
+    margin-top: 10px;
+    max-width: 600px;
+    height: 100vh;
+    box-sizing: border-box;
+}
+
+.registration-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 400px;
+    
+}
+.form-fields .form-group {
+    margin-bottom: 20px; /* Increase the space between each form group */
+}
+.form-group input[type="text"] {
+    width: 500px; /* Adjust the width of the username field */
+    height: 50px;
+}
+
+.form-group input[type="email"] {
+    width: 500px; /* Adjust the width of the username field */
+    height: 50px;
+}
+
+.form-group input[type="password"] {
+    width: 500px; /* Adjust the width of the username field */
+    height: 50px;
+}
+.btn-primary {
+    font-family: chirp-bold;
+    font-size: 15px;
+    background-color: white;
+    color: black;
+    width: 500px;
+    height: 50px;
+    border-radius: 25px;
+    border: 1px solid grey;
+    
+}
+
+

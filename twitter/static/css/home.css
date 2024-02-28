@@ -31,10 +31,11 @@ body {
 .flex-child-magenta{
 flex-grow: 1.4;
 align-items: center;
+margin: 20px;
 }
 
 img{
-    margin-top: 30%;
+    margin-top: 20%;
     margin-left: 30%;
 }
 h1{
@@ -87,3 +88,6 @@ height: 100vh;
     border: 1px solid grey;
 }
 
+button:hover {
+    cursor: pointer;
+}

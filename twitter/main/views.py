@@ -1,7 +1,10 @@
 from django.shortcuts import render
+from django.shortcuts import redirect
 from django.http import HttpResponse, HttpResponseRedirect
 from .models import ToDoList, Item
-from .forms import CreateNewList
+from .forms import CreateNewList 
+from django.contrib.auth import authenticate, login
+from django.shortcuts import redirect
 
 # Create your views here.
 def index(response, id):
@@ -29,17 +32,7 @@ def index(response, id):
     return render(response, "main/list.html", {"ls":ls})
 
 def home(response):
-    return render(response, "main/home.html", {"name":"test"})
+    return render(response, "main/home.html", {})
 
-def create(response):
-    if response.method == "POST":
-        form = CreateNewList(response.POST)
 
-        if form.is_valid():
-            n = form.cleaned_data["name"]
-            t = ToDoList(name=n)
-            t.save()
-        return HttpResponseRedirect("/%i" %t.id)
-    else:
-        form = CreateNewList()
-    return render(response, "main/create.html", {"form":form})
+    
