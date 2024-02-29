@@ -1,0 +1,47 @@
+body{
+    font-family: chirp;
+}
+.sidenav {
+    height: 100%;
+    width: 30%;
+    position: fixed;
+    border-right: 1px solid grey;
+    z-index: 1;
+    overflow-x: hidden;
+}
+
+.dashboard-logo{
+    width: 30px;
+    height: 30px;
+    margin-top: 2%;
+    margin-right: 74%;
+}
+.sidenav a{
+    font-family: chirp-bold;
+    font-size: 28px;
+    display: inline-block;
+    padding-top: 10%;
+    margin-left: 30%;
+    margin-right: 0;
+    color: white;
+    
+}
+
+
+.sidenav li a:hover {
+    background-color: #f0f0f0;
+    width: 175px;
+    height: 47px;
+}
+
+
+
+.fas{
+   color: white;
+}
+
+.middle-sect {
+    width: 40%;
+    margin-left: 30%;
+    border-right: 1px solid grey;
+}

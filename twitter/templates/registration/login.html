@@ -15,7 +15,7 @@ Login To Your Account
 <div class="login-form-container">
     <form method="post" action="{% url 'login' %}" class="form-class">
         {% csrf_token %}
-        <h2>Sign In To Your Account</h2>
+        <h2>Sign In To X</h2>
         <div class="mb-3">
             <label for="inputUsername" class="form-label">Username</label>
             <input type="text" class="form-control" id="inputUsername" name="username" placeholder="Enter your username">
@@ -23,11 +23,8 @@ Login To Your Account
         </div>
         <label for="inputPassword" class="form-label">Password</label>
         <input type="password" id="inputPassword" class="form-control" name="password" aria-describedby="passwordHelpBlock">
-        <div id="passwordHelpBlock" class="form-text">
-            Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
-        </div>
         <button type="submit" class="login-btn-2">Login</button>
-        
+        <button type="submit" class="fpasswd-btn">Forgot Password?</button>
     </form>
     
 </div>

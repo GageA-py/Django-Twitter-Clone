@@ -21,7 +21,7 @@
 
 body {
     font-family: chirp;
-    background-color: aqua;
+    background-color: black;
 }
 .flex-container{
     display: flex; 
@@ -35,12 +35,15 @@ margin: 20px;
 }
 
 img{
+    height: 300px;
+    width: 300px;
     margin-top: 20%;
     margin-left: 30%;
 }
 h1{
     font-family: chirp-heavy;
     font-size: 50px;
+    color: white;
     margin-top: 20%;
     margin-left: 3%;
 }
@@ -50,12 +53,14 @@ h2{
     font-size: 30px;
     margin-top: 10%;
     margin-left: 3%;
+    color: white;
 }
 
 p{
     font-family: chirp-heavy;
     margin-top: 8%;
     margin-left: 3%;
+    color: white;
 }
 .flex-child-green{
 flex-grow: 0.7;
@@ -77,7 +82,7 @@ height: 100vh;
 }
 
 .login-btn{
-    background-color: white;
+    background-color: black;
     color: #359cf0;
     float: left;
     margin-top: 1%;

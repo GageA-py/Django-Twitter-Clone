@@ -1,11 +1,15 @@
-.form-container {
+.login-form-container {
     display: flex;
     flex-direction: column;
     align-items: center; 
     height: 100vh;
 }
 h2{
-    margin: 0;
+    margin-left: 100px;
+}
+
+.mb-3{
+    margin: 20px;
 }
 
 .form-class {
