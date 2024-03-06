@@ -5,14 +5,17 @@ from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit
 
 class SignupForm(UserCreationForm):
-    username = forms.CharField(label=False)
-    email = forms.EmailField(label=False)
-    password1 = forms.CharField(widget=forms.PasswordInput(), label=False)
-    password2 = forms.CharField(widget=forms.PasswordInput(), label=False)
+    first_name = forms.CharField(label="First name")
+    last_name = forms.CharField(label="Last name")
+    username = forms.CharField(label="username")
+    email = forms.EmailField(label="email")
+    password1 = forms.CharField(widget=forms.PasswordInput(), label="password")
+    password2 = forms.CharField(widget=forms.PasswordInput(), label="verify password")
+    
 
     class Meta:
         model = User
-        fields = ['username', 'email', 'password1', 'password2']
+        fields = ['first_name', 'last_name', 'username', 'email', 'password1', 'password2']
 
    
     helper = FormHelper()

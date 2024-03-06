@@ -9,8 +9,9 @@ class Tweet(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     
     def __str__(self):
-        return (
-            f"{self.user}"
-            f"({self.created_at:%Y-%m-%d %H:%m}): "
-            f"{self.body}"
-        )
+        return f"{self.user} {self.body} ({self.created_at:%H:%M}): "
+
+
+        { }
+        ( )
+

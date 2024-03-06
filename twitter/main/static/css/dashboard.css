@@ -4,7 +4,7 @@ body{
 }
 .sidenav {
     height: 100%;
-    width: 30%;
+    width: 25%;
     position: fixed;
     border-right: 1px solid grey;
     z-index: 1;
@@ -44,8 +44,8 @@ body{
 }
 
 .middle-sect {
-    width: 40%;
-    margin-left: 30%;
+    width: 45%;
+    margin-left: 25%;
     border-right: 1px solid grey;
 }
 
@@ -112,11 +112,24 @@ body{
 }
 
 .other-tweets{
-    display: block;
+    margin-top: 0;
     border-bottom: 1px solid grey;
 }
 
+.user-name {
+    margin-left: 10%;
+    color: #919090;
+}
 
+.time-posted {
+    color:#919090;
+    margin-left: 10%;
+}
+.users-tweet {
+    color: white;
+    margin-left: 10%;
+    margin-top: 5%;
+}
 .third-sect {
     display: flex;
     position: absolute;
@@ -128,16 +141,69 @@ body{
 
 .search{
     position: fixed;
-    margin-top: 0.8%;
-    
-    
+
 }
-.search-field.form-control {
+
+
+.search-query {
     height: 40px;
     width: 330px;
     padding-left: 15%;
     border: none;
     border-radius: 50px;
     background-color:#252530;
-       color: #999;
+       color: #919090;
+}
+
+ 
+.search .fas.fa-search{
+    position: fixed;
+    margin-left: 1%;
+    margin-top: 0.9%;
+    color: #696969;
+}
+.input-group-text {
+    background-color:#252530;
+    border-radius: 50px;
+}
+
+.subscribe {
+    margin-left: 10%;
+    margin-top: 15%;
+    padding: 0;
+    width: 75%;
+    height: 30%;
+    border-radius: 3%;
+    background-color:#252530;
+}
+.subscribe h2{
+    margin-top: 3%;
+    padding: 0;
+    font-size: 23px;
+    font-family: chirp-heavy;
+}
+
+.subscribe p{
+    font-family: chirp;
+}
+
+.subscribe-btn{
+    font-family: chirp-heavy;
+    width: 100px;
+    height: 35px;
+    margin-left: 2%;
+    border-radius: 50px;
+    background-color:#359cf0;
+    color: white;
+    border: none;
+}
+.wh-box{
+    position: absolute;
+    border: 0;
+    border-radius: 20px;
+    height: 70%;
+    width: 75%;
+    margin-left: 10%;
+    margin-top: 70%;
+    background-color:#252530;
 }
