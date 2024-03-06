@@ -50,7 +50,7 @@ h1{
 
 h2{
     font-family: chirp-heavy;
-    font-size: 30px;
+    font-size: 45px;
     margin-top: 10%;
     margin-left: 3%;
     color: white;
@@ -70,25 +70,27 @@ height: 100vh;
 
 .signup-btn{
     font-family: chirp-bold;
-    font-size: 15px;
+    font-size: 17px;
     background-color: #359cf0;
     color: white;
     margin-top: 5%;
     margin-left: 3%;
     height: 45px;
-    width: 300px;
+    width: 500px;
     border-radius: 120px;
     border: none;
 }
 
 .login-btn{
+    font-family: chirp-bold;
+    font-size: 17px;
     background-color: black;
     color: #359cf0;
     float: left;
     margin-top: 1%;
     margin-left: 3%;
     height: 45px;
-    width: 300px;
+    width: 500px;
     border-radius: 120px;
     border: 1px solid grey;
 }

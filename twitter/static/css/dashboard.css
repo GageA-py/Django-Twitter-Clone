@@ -1,5 +1,6 @@
 body{
     font-family: chirp;
+    background-color: white;
 }
 .sidenav {
     height: 100%;
@@ -13,25 +14,118 @@ body{
 .dashboard-logo{
     width: 30px;
     height: 30px;
-    margin-top: 2%;
+    margin-top: 2.1%;
     margin-right: 74%;
 }
 .sidenav a{
     font-family: chirp-bold;
     font-size: 28px;
-    display: block;
-    padding-top: 10%;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 10%;
     margin-left: 30%;
+    margin-right: 0;
+    color: white;
     
 }
 
-.fa-house{
-    color: aqua;
-    background-color: red;
+.sidenav a:hover {
+    background-color: #ddd;
+    opacity: 1;
+    border-radius: 20px;
+}
+
+
+
+
+
+.fas{
+   color: white;
 }
 
 .middle-sect {
     width: 40%;
     margin-left: 30%;
     border-right: 1px solid grey;
+}
+
+.navbar
+{   
+    position: fixed;
+    line-height: 20px;
+    height: 50px;
+}
+.nav-link-fy {
+    display: inline-block;
+    overflow-x: hidden;
+    position: fixed;
+    width: 50%;
+    font-size: 18px;
+    font-family: chirp-medium;
+    line-height: 19px;
+    margin-left: 10%;
+    color: white;
+
+}
+
+.nav-link-f {
+    display: inline-block;
+    overflow-x: hidden;
+    position: fixed;
+    width: 50%;
+    font-size: 18px;
+    font-family: chirp-medium;
+    color: white;
+    line-height: 19px;
+    margin-left: 20%;
+    margin-top: 0;
+}
+
+.form-group {
+    margin-top: 10%;
+    background-color: black;
+    color: grey;
+    border-top: 1px solid grey;
+    border-bottom: 1px solid grey;
+}
+
+.form-control {
+    font-size: 30px; /* Adjust the font size as needed */
+    resize: vertical; /* Allow vertical resizing */
+    min-height: 20px; /* Set a minimum height */
+    max-height: 200px;
+    margin: 0;
+    padding: 0;
+}
+
+.btn.btn-secondary{
+    font-family: chirp-heavy;
+    border-radius: 25px;
+    border: none;
+    width: 80px;
+    height: 45px;
+    margin-top: 2%;
+    margin-bottom: 1%;
+    margin-left: 80%;
+    background-color:#359cf0;
+    color: white;
+}
+
+.other-tweets{
+    display: block;
+    border-bottom: 1px solid grey;
+}
+.d-flex {
+    position: fixed;
+    margin-left: 40%;
+    margin-top: 0.8%;
+    border: none;
+}
+
+.third-sect {
+    display: flex;
+    margin-left: 30%;
+    border: 1px solid grey;
+    width: 30%;
+    height: auto;
 }

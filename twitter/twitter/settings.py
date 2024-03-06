@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'main.apps.MainConfig',
     'members.apps.MembersConfig',
+    'tweets.apps.TweetsConfig',
     'crispy_forms',
     'crispy_bootstrap4'
 ]

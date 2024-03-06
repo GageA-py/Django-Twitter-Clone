@@ -1,5 +1,6 @@
 body{
     font-family: chirp;
+    background-color: white;
 }
 .sidenav {
     height: 100%;
@@ -13,26 +14,28 @@ body{
 .dashboard-logo{
     width: 30px;
     height: 30px;
-    margin-top: 2%;
+    margin-top: 3%;
     margin-right: 74%;
 }
 .sidenav a{
     font-family: chirp-bold;
     font-size: 28px;
+    text-decoration: none;
     display: inline-block;
-    padding-top: 10%;
+    margin-top: 10%;
     margin-left: 30%;
     margin-right: 0;
     color: white;
     
 }
 
-
-.sidenav li a:hover {
-    background-color: #f0f0f0;
-    width: 175px;
-    height: 47px;
+.sidenav a:hover {
+    background-color: #ddd;
+    opacity: 1;
+    border-radius: 20px;
 }
+
+
 
 
 
@@ -44,4 +47,97 @@ body{
     width: 40%;
     margin-left: 30%;
     border-right: 1px solid grey;
+}
+
+.navbar
+{   
+    position: fixed;
+    line-height: 20px;
+    height: 50px;
+}
+.nav-link-fy {
+    display: inline-block;
+    overflow-x: hidden;
+    position: fixed;
+    width: 50%;
+    font-size: 18px;
+    font-family: chirp-medium;
+    line-height: 19px;
+    margin-left: 10%;
+    color: white;
+
+}
+
+.nav-link-f {
+    display: inline-block;
+    overflow-x: hidden;
+    position: fixed;
+    width: 50%;
+    font-size: 18px;
+    font-family: chirp-medium;
+    color: white;
+    line-height: 19px;
+    margin-left: 20%;
+    margin-top: 0;
+}
+
+.form-group {
+    margin-top: 10%;
+    background-color: black;
+    color: grey;
+    border-top: 1px solid grey;
+    border-bottom: 1px solid grey;
+}
+
+.form-control {
+    font-size: 28px; /* Adjust the font size as needed */
+    resize: vertical; /* Allow vertical resizing */
+    min-height: 20px; /* Set a minimum height */
+    max-height: 200px;
+    margin: 0;
+    padding-bottom: 0;
+}
+
+.btn.btn-secondary{
+    font-family: chirp-heavy;
+    border-radius: 25px;
+    border: none;
+    width: 70px;
+    height: 35px;
+    margin-top: 2%;
+    margin-bottom: 1%;
+    margin-left: 80%;
+    background-color:#359cf0;
+    color: white;
+}
+
+.other-tweets{
+    display: block;
+    border-bottom: 1px solid grey;
+}
+
+
+.third-sect {
+    display: flex;
+    position: absolute;
+    margin-left: 69.9%;
+    top: 0;
+    width: 30%;
+    height: 100%;
+}
+
+.search{
+    position: fixed;
+    margin-top: 0.8%;
+    
+    
+}
+.search-field.form-control {
+    height: 40px;
+    width: 330px;
+    padding-left: 15%;
+    border: none;
+    border-radius: 50px;
+    background-color:#252530;
+       color: #999;
 }
