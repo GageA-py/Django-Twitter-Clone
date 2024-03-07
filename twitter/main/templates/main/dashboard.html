@@ -46,14 +46,21 @@
     </nav>
     <div class="tweet-container">
     {% if form %}
-    
-    <form method="POST">
+    <form method="POST" class="form-with-profile-pic">
       {% csrf_token %}
       <div class="form-group">
+        <img class="profile-pic-form" src="{{ request.user.profile.profile_pic.url }}" alt="Profile Picture">
         {{ form.body.label_tag }}
         {{ form.body }} <!-- Render the body field -->
         {{ form.body.errors }} <!-- Display field errors if any -->
-        <button type="submit" class="btn btn-secondary">Post</button>
+        <span class="tweet-icons">
+          <i class="fas fa-image"></i>
+          <i class="fas fa-list"></i>
+          <i class="fas fa-smile"></i>
+          <i class="fas fa-map-marker-alt"></i>
+          <button type="submit" class="btn btn-secondary">Post</button>
+        </span>
+        
       </div> 
     </form>
   </div>
@@ -61,12 +68,27 @@
     {% for tweet in tweets %}
     <div class="other-tweets">
       <span class="user-info">
+          {% for profile in profiles %}
+          {% if profile.user == tweet.user %}
+          {% if profile.profile_pic %}
+          <img class="profile-pic-t" src="{{ tweet.user.profile.profile_pic.url }}" alt="Profile Picture">
+          {% endif %}
+          {% endif %}
+          {% endfor %}
+          <span class="real-name">{{ tweet.user.first_name }} {{ tweet.user.last_name }}</span>
           <span class="user-name">@{{ tweet.user }}</span>
           <span class="time-posted">{{ tweet.created_at | date:"H:i  M d, Y"}}</span>
-      </span>
-      <br>
+          <br>
       <span class="users-tweet">{{ tweet.body | safe }}</span>
-      <br><br>
+      <br>
+      <span class="other-tweets-icons">
+      <i class="far fa-comment"></i>
+      <i class="fas fa-retweet"></i>
+      <i class="far fa-heart"></i>
+      <i class="fas fa-chart-bar"></i>
+      <i class="far fa-bookmark"></i>
+      <i class="fas fa-share-square"></i>
+    </span>
   </div>
     {% endfor %}
   </div>

@@ -9,7 +9,7 @@ class TweetForm(forms.ModelForm):
                 "placeholder": "What Is Happening?!",
                 "class": "form-control",
                 "rows": "2",
-                "style": "width: 100%; background-color: black; color: grey; border: none;",
+                "style": "width: 75%; margin-bottom: 0; margin-left: 15%; background-color: black; color: grey; border-bottom: 1px solid grey; border-top: none;  border-right: none; border-left: none;",
             }
         ),
         label="",
