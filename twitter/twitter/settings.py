@@ -30,6 +30,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 LOGIN_REDIRECT_URL = '/dashboard'
+LOGOUT_REDIRECT_URL = '/'
 
 # Application definition
 
@@ -40,10 +41,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'bootstrap4',
     'main.apps.MainConfig',
     'members.apps.MembersConfig',
     'tweets.apps.TweetsConfig',
-    'crispy_forms',
+    'crispy_forms',  
     'crispy_bootstrap4'
 ]
 
@@ -131,7 +133,9 @@ STATIC_URL = '/static/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-STATICFILES_DIRS = os.path.join(BASE_DIR, 'members', 'static'), 
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'members', 'static'),
+]
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

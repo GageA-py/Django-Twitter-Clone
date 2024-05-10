@@ -3,11 +3,10 @@ from tweets.models import Tweet
 from members.models import Profile
 from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.models import User
-
-# Register your models here.
-admin.site.register(Tweet)
-admin.site.register(Profile)
-
+from django.contrib.auth.models import Group
+ 
+admin.site.unregister(Group)
+admin.site.unregister(User)
 
 
 class ProfileInline(admin.StackedInline):  # or admin.TabularInline for a more compact display
@@ -15,8 +14,20 @@ class ProfileInline(admin.StackedInline):  # or admin.TabularInline for a more c
     can_delete = False
     verbose_name_plural = 'Profile'
 
-class CustomUserAdmin(UserAdmin):
-    inlines = (ProfileInline,)
 
-admin.site.unregister(User)
-admin.site.register(User, CustomUserAdmin)
+# Extend user model 
+class UserAdmin(admin.ModelAdmin):
+    model = User
+    fields = ["username"]
+    inlines = [ProfileInline]
+
+
+# Register your models here.
+admin.site.register(Tweet)
+admin.site.register(User, UserAdmin)
+
+
+
+
+
+

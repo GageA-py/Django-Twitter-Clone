@@ -9,12 +9,14 @@ from tweets.models import Tweet
 from tweets.forms import TweetForm
 from django.contrib import messages
 
+
 # Create your views here.
 
 def home(response):
     return render(response, "main/home.html", {})
 
 def dashboard(request):
+    tweets = Tweet.objects.all().order_by("-created_at") 
     if request.user.is_authenticated:
         form = TweetForm(request.POST or None)
         tweets = Tweet.objects.all().order_by("-created_at")
@@ -24,7 +26,6 @@ def dashboard(request):
                 tweet = form.save(commit=False)
                 tweet.user = request.user
                 tweet.save()
-                messages.success(request, "Your Tweet Has Been Posted!")
                 return redirect('dashboard')
 
         profiles = Profile.objects.all()
@@ -32,4 +33,12 @@ def dashboard(request):
     else:
         
         return render(request, 'main/dashboard.html', {"tweets":tweets})
-    
+
+def profile(request, pk):
+    if request.user.is_authenticated:
+        profile = Profile.objects.get(user_id=pk)
+        return render(request, 'main/profile.html', {"profile": profile})
+    else:
+        messages.success(request, "You must be logged in to view this page.")
+        return redirect('login')
+

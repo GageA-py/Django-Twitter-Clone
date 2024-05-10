@@ -12,8 +12,13 @@ def signup(response):
         user_form = SignupForm(response.POST)
         if user_form.is_valid():
             user_form.save()
-            return redirect('home')
+            return redirect('dashboard')
     else:
         user_form = SignupForm()
     return render(response, 'authenticate/create_account.html', {'user_form':user_form})
+
+
+def logout_user(request):
+    logout(request)
+    return redirect('/')
 

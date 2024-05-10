@@ -1,0 +1,39 @@
+
+body{
+    font-family: chirp;
+}
+.following-box {
+    margin-left: 10%;
+    margin-top: 15%;
+    padding: 0;
+    width: 75%;
+    height: 30%;
+    border-radius: 3%;
+    background-color: black;
+    border: 1px solid rgb(71, 71, 71);
+}
+
+.following-box strong{
+    font-family: chirp-medium;
+    font-size: 20px;
+    color: white;
+    margin-left: 3%;
+}
+
+.followed-by{
+    margin-left: -75%;
+    margin-top: 70%;
+    padding: 0;
+    width: 75%;
+    height: 30%;
+    border-radius: 3%;
+    background-color: black;
+    border: 1px solid rgb(71, 71, 71);
+}
+
+.followed-by strong{
+    font-family: chirp-medium;
+    font-size: 20px;
+    color: white;
+    margin-left: 3%;
+}
