@@ -37,7 +37,9 @@ def dashboard(request):
 def profile(request, pk):
     if request.user.is_authenticated:
         profile = Profile.objects.get(user_id=pk)
-        return render(request, 'main/profile.html', {"profile": profile})
+        tweets = Tweet.objects.filter(user_id=pk)
+
+        return render(request, 'main/profile.html', {"profile": profile, "tweets": tweets})
     else:
         messages.success(request, "You must be logged in to view this page.")
         return redirect('login')
