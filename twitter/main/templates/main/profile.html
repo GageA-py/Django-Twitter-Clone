@@ -42,23 +42,26 @@
               <h1 class="profile-user">
                 {{profile.user.username}}'s Profile
               </h1>
-              <br>
-                  {% for tweet in tweets %}
-                  <div class="other-tweets">
-                    {{ tweet.body | safe }}
-                    <span class="user-info">
-                       
-                    <br>
-                    <span class="other-tweets-icons">
-                    <i class="far fa-comment"></i>
-                    <i class="fas fa-retweet"></i>
-                    <i class="far fa-heart"></i>
-                    <i class="fas fa-chart-bar"></i>
-                    <i class="far fa-bookmark"></i>
-                    <i class="fas fa-share-square"></i>
-                  </span>
+              {% for tweet in tweets %}
+              <div class="tweet">
+                <div class="tweet-header">
+                  <span class="real-name-p">{{ tweet.user.first_name }} {{ tweet.user.last_name }}</span>
+                  <span class="user-name-p">@{{ tweet.user }}</span>
+                  <span class="time-posted-p">{{ tweet.created_at | date:"H:i  M d, Y"}}</span>
                 </div>
-                {% endfor %}
+                <div class="tweet-body">
+                  <span class="users-tweet">{{ tweet.body | safe }}</span>
+                </div>
+                <div class="tweet-icons">
+                  <i class="far fa-comment"></i>
+                  <i class="fas fa-retweet"></i>
+                  <i class="far fa-heart"></i>
+                  <i class="fas fa-chart-bar"></i>
+                  <i class="far fa-bookmark"></i>
+                  <i class="fas fa-share-square"></i>
+                </div>
+              </div>
+            {% endfor %}
       </div>
     {% endif %}
 
