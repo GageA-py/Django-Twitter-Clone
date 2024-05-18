@@ -1,7 +1,3 @@
-document.addEventListener("DOMContentLoaded", function() {
-    const logoutForm = document.getElementById("logout-form");
-})
-
 
 const tweetBody = document.getElementById("tweet-body");
 

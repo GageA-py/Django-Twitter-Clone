@@ -1,14 +1,12 @@
-
 {% extends 'base.html' %}
 {% load static %}
-{% block title %} Profile {{user.username}} {% endblock %}
+{% block title %} Profile {{ user.username }} {% endblock %}
 
 {% block content %}
-
 {% if profile %}
 <div class="flex-container">
   <div class="sidenav">
-    <img class="dashboard-logo" src="{% static '/images/logo.svg' %}" alt="" />
+    <img class="dashboard-logo" src="{% static 'images/logo.svg' %}" alt="Logo" />
     <li>
       <a href="/dashboard"><i class="fas fa-home"></i> <span>Home</span></a>
     </li>
@@ -16,98 +14,92 @@
       <a href="/explore"><i class="fas fa-search"></i> <span>Explore</span></a>
     </li>
     <li>
-      <a href="/notifications"
-        ><i class="fas fa-bell"></i> <span>Notifications</span></a
-      >
+      <a href="/notifications"><i class="fas fa-bell"></i> <span>Notifications</span></a>
     </li>
     <li>
-      <a href="/messages"
-        ><i class="fas fa-envelope"></i> <span>Messages</span></a
-      >
+      <a href="/messages"><i class="fas fa-envelope"></i> <span>Messages</span></a>
     </li>
     <li>
       <a href="/profile"><i class="fas fa-user"></i> <span>Profile</span></a>
     </li>
     {% if user.is_authenticated %}
-  <form id="logout-form" action="{% url 'logout' %}" method="POST">
-    {% csrf_token %}
-    <button type="submit" class="logout-btn">Log out</button>
-</form>
-{% endif %}
+      {% if profile.profile_pic %}
+        <img class="profile-pic-t" src="{{ profile.profile_pic.url }}" alt="Profile Picture">
+      {% else %}
+        <img class="profile-pic-t" src="{% static 'members/images/egg.jpg' %}" alt="Default Profile Picture">
+      {% endif %}
+      <form id="logout-form" action="{% url 'logout' %}" method="POST">
+        {% csrf_token %}
+        <button type="submit" class="logout-btn">Log out</button>
+      </form>
+    {% endif %}
   </div>
   <div class="middle-sect">
-    
-            {% if user.is_authenticated %}
-
-              <h1 class="profile-user">
-                {{profile.user.username}}'s Profile
-              </h1>
-              {% for tweet in tweets %}
-              <div class="tweet">
-                <div class="tweet-header">
-                  <span class="real-name-p">{{ tweet.user.first_name }} {{ tweet.user.last_name }}</span>
-                  <span class="user-name-p">@{{ tweet.user }}</span>
-                  <span class="time-posted-p">{{ tweet.created_at | date:"H:i  M d, Y"}}</span>
-                </div>
-                <div class="tweet-body">
-                  <span class="users-tweet">{{ tweet.body | safe }}</span>
-                </div>
-                <div class="tweet-icons">
-                  <i class="far fa-comment"></i>
-                  <i class="fas fa-retweet"></i>
-                  <i class="far fa-heart"></i>
-                  <i class="fas fa-chart-bar"></i>
-                  <i class="far fa-bookmark"></i>
-                  <i class="fas fa-share-square"></i>
-                </div>
-              </div>
-            {% endfor %}
-      </div>
+    {% if user.is_authenticated %}
+      <h1 class="profile-user">{{ profile.user.username }}'s Profile</h1>
+      {% for tweet in tweets %}
+        <div class="tweet">
+          <div class="tweet-header">
+            <span class="real-name-p">{{ tweet.user.first_name }} {{ tweet.user.last_name }}</span>
+            <span class="user-name-p">@{{ tweet.user }}</span>
+            <span class="time-posted-p">{{ tweet.created_at | date:"H:i M d, Y" }}</span>
+          </div>
+          <div class="tweet-body">
+            <span class="users-tweet">{{ tweet.body | safe }}</span>
+          </div>
+          <div class="tweet-icons">
+            <i class="far fa-comment"></i>
+            <i class="fas fa-retweet"></i>
+            <i class="far fa-heart"></i>
+            <i class="fas fa-chart-bar"></i>
+            <i class="far fa-bookmark"></i>
+            <i class="fas fa-share-square"></i>
+          </div>
+        </div>
+      {% endfor %}
     {% endif %}
-
-<div class="third-sect">
-  
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0"> 
-          
-          </li>
-        </ul>
-        <form class="search">
-          <i class="fas fa-search"></i>
-          <input type="text" class="search-query" placeholder="Search" />
-        </form> 
+  </div>
+  <div class="third-sect">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          </ul>
+          <form class="search">
+            <i class="fas fa-search"></i>
+            <input type="text" class="search-query" placeholder="Search" />
+          </form>
+        </div>
       </div>
+    </nav>
+    <div class="following-box">
+      <strong>Following:</strong><br>
+      {% for following in profile.follows.all %}
+        <a href="{% url 'profile' following.user.id %}">@{{ following }}</a><br>
+      {% endfor %}
     </div>
-  </nav>
-  <div class="following-box">
-    <strong>Following:</strong><br>
-              {% for following in profile.follows.all %}
-              <a href="{% url 'profile' following.user.id %}">
-                    @{{ following }}</a><br>
-                {% endfor %}
-
-                <br><br>
+    <div class="followed-by">
+      <strong>Followed By:</strong><br>
+      {% for following in profile.followed_by.all %}
+        <a href="{% url 'profile' following.user.id %}">@{{ following }}</a><br>
+      {% endfor %}
+    </div>
   </div>
-
-  <div class="followed-by"> 
-        <strong>Followed By:</strong><br>
-        {% for following in profile.followed_by.all%}
-        <a href="{% url 'profile' following.user.id %}">
-          @{{ following }}</a><br>
-        {% endfor %}
-        
-      </li>
-      {% endif %}
-  </div>
-  
-
 </div>
-<script src="{% static '/js/dashboard.js' %}"></script>
 
+<form method="POST" class="unfollow-btn">
+  {% csrf_token %}
+  {% if profile in user.profile.follows.all %}
+    <button class="btn btn-outline-danger" name="follow" value="unfollow" type="submit">UNFOLLOW @{{ profile.user.username }}</button>
+  {% else %}
+    <button class="btn btn-outline-success" name="follow" value="follow" type="submit">FOLLOW @{{ profile.user.username }}</button>
+  {% endif %}
+</form>
+<br>
 
+<script src="{% static 'js/dashboard.js' %}"></script>
+{% endif %}
 {% endblock %}

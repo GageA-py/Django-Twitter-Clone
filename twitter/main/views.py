@@ -39,6 +39,21 @@ def profile(request, pk):
         profile = Profile.objects.get(user_id=pk)
         tweets = Tweet.objects.filter(user_id=pk)
 
+        if request.method == "POST":
+            current_user_profile = request.user.profile
+
+            # Get form data
+            action = request.POST['follow']
+
+            # Decide to unfollow or follow
+            if action == "unfollow":
+                current_user_profile.follows.remove(profile)
+            elif action == "follow":
+                current_user_profile.follows.add(profile)
+            
+            # Save the profile
+            current_user_profile.save()
+
         return render(request, 'main/profile.html', {"profile": profile, "tweets": tweets})
     else:
         messages.success(request, "You must be logged in to view this page.")

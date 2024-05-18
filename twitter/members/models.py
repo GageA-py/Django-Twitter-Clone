@@ -7,20 +7,21 @@ from django.dispatch import receiver
 # Create your models here.
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    #profile_pic = models.ImageField(null=True, blank=True, upload_to='images/')
     follows = models.ManyToManyField("self", 
     related_name="followed_by",
     symmetrical=False,
     blank=True)
 
+    profile_pic = models.ImageField(null=True, blank=True, upload_to="images/")
+
     def __str__(self):
         return self.user.username
 
-    """def save(self, *args, **kwargs):
+    def save(self, *args, **kwargs):
         if not self.profile_pic:
             # Assign a default
              default_pic_path = settings.STATIC_URL + 'members/static/images/egg.png'
-        super().save(*args, **kwargs)"""
+        super().save(*args, **kwargs)
 
 # Create a profile when user signs up
 @receiver(post_save, sender=User)

@@ -3,11 +3,12 @@ body{
    
 }
 .sidenav {
-    height: 100%;
+    height: 100dvh;
     width: 25%;
     position: fixed;
     z-index: 1;
     overflow-x: hidden;
+    border-right: 1px solid rgb(71, 71, 71);
 }
 
 .dashboard-logo{
@@ -46,7 +47,7 @@ body{
     color: white;
     border: 0;
     border-radius: 25px;
-    margin-top: 20%;
+    margin-top: 40%;
     margin-left: 30%;
     width: 50%;
 }
@@ -54,11 +55,7 @@ body{
 .middle-sect {
     width: 45%;
     margin-left: 25%;
-    height: 100vh;
-    border-bottom: 1px solid rgb(71, 71, 71);
-    border-left: 1px solid rgb(71, 71, 71);
-    border-right: 1px solid rgb(71, 71, 71);
-
+    height: 100dvh;
     
 }
 
@@ -163,7 +160,7 @@ body{
     height: 35px;
     margin-top: 2%;
     margin-bottom: 1%;
-    margin-left: 35%;
+    float: right;
     background-color:#359cf0;
     color: white;
 }
@@ -224,7 +221,7 @@ body{
     font-family: chirp;
     font-size: 14px;
     margin-top: 0.5%;
-    float: right;
+    margin-left: 49%;
     white-space: nowrap;
 }
 .users-tweet {
@@ -238,11 +235,12 @@ body{
 }
 .third-sect {
     display: flex;
-    position: absolute;
+    position: fixed;
     margin-left: 70%;
     top: 0;
     width: 30%;
-    height: 100%;
+    height: 100dvh;
+    border-left: 1px solid rgb(71, 71, 71);
 }
 
 .search{
