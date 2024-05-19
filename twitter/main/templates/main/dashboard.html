@@ -27,6 +27,10 @@
     </li>
     {% if user.is_authenticated %}
   <form id="logout-form" action="{% url 'logout' %}" method="POST">
+    {% if request.user.profile.profile_pic %}
+    <h4>Welcome back, @{{ request.user.profile.user }}!</h4>
+    <img class="profile-pic-btn" src="{{ request.user.profile.profile_pic.url }}" alt="Profile Picture">
+    {% endif %}
     {% csrf_token %}
     <button type="submit" class="logout-btn">Log out</button>
 </form>
@@ -51,26 +55,31 @@
       </div>
     </nav>
     <div class="tweet-container">
-    {% if form %}
-    <form method="POST" class="form-with-profile-pic" id="tweet-form" width="80%">
-      {% csrf_token %}
-      <div class="form-group">
-        <img class="profile-pic-form" src="{{ request.user.profile.profile_pic.url }}" alt="Profile Picture">
-        {{ form.body.label_tag }}
-        <textarea id="tweet-body" class="form-control tweet-input" name="body" rows="1" placeholder="What's happening?" style="width: 70%; background-color: black;"></textarea>
-        {{ form.body.errors }} <!-- Display field errors if any -->
-        <span class="tweet-icons">
-          <i class="fas fa-image"></i>
-          <i class="fas fa-list"></i>
-          <i class="fas fa-smile"></i>
-          <i class="fas fa-map-marker-alt"></i>
-          <button type="submit" class="btn btn-secondary">Post</button>
-        </span>
-        
-      </div> 
-    </form>
-  </div>
-    {% endif %}
+      {% if form %}
+      <form method="POST" class="form-with-profile-pic" id="tweet-form" width="80%">
+        {% csrf_token %}
+        <div class="form-group">
+          {% if request.user.profile.profile_pic %}
+          <img class="profile-pic-form" src="{{ request.user.profile.profile_pic.url }}" alt="Profile Picture">
+          {% else %}
+          <img class="profile-pic-t" src="{% static 'images/egg.png' %}" alt="Default Profile Picture">
+          {% endif %}
+          {{ form.body.label_tag }}
+          <textarea id="tweet-body" class="form-control tweet-input" name="body" rows="1" placeholder="What's happening?" style="width: 70%; background-color: black;"></textarea>
+          {{ form.body.errors }} <!-- Display field errors if any -->
+          <span class="tweet-icons">
+            <i class="fas fa-image"></i>
+            <i class="fas fa-list"></i>
+            <i class="fas fa-smile"></i>
+            <i class="fas fa-map-marker-alt"></i>
+            <button type="submit" class="btn btn-secondary">Post</button>
+          </span>
+        </div>
+      </form>
+      {% endif %}
+    </div>
+    
+  
     {% for tweet in tweets %}
     <div class="other-tweets">
       <span class="user-info">
@@ -79,7 +88,7 @@
           {% if profile.profile_pic %}
           <img class="profile-pic-t" src="{{ tweet.user.profile.profile_pic.url }}" alt="Profile Picture">
           {% else %}
-          <img class="profile-pic-t" src="{% static 'members/images/egg.jpg' %}" alt="Default Profile Picture">
+          <img class="profile-pic-t" src="{% static 'images/egg.png' %}" alt="Default Profile Picture">
           {% endif %}
           {% endif %}
           {% endfor %}

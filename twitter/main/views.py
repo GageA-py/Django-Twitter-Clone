@@ -8,6 +8,7 @@ from django.shortcuts import redirect
 from tweets.models import Tweet
 from tweets.forms import TweetForm
 from django.contrib import messages
+from django.templatetags.static import static
 
 
 # Create your views here.
@@ -20,6 +21,7 @@ def dashboard(request):
     if request.user.is_authenticated:
         form = TweetForm(request.POST or None)
         tweets = Tweet.objects.all().order_by("-created_at")
+        default_image_url = static('members/images/egg.jpg')
 
         if request.method == "POST":
             if form.is_valid():

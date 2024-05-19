@@ -6,9 +6,18 @@ body{
 .profile-user {
     margin-top: 0;
     margin-left: 0;
-    border-bottom: 1px solid rgb(71, 71, 71);
-
+    font-family: chirp-heavy;
 }
+
+.user-profile-button {
+  display: flex;
+  margin-left: 30%;
+  margin-top: 20%;
+  background-color: black;
+  border: none;
+}
+
+
 
 .tweet {
     border-top: 0.5px solid rgb(71, 71, 71);
@@ -23,8 +32,8 @@ body{
   }
   
   .time-posted-p {
-   margin-left: 45%;
    white-space: nowrap;
+   color: #919090;
   }
 
   .real-name-p {
@@ -32,17 +41,20 @@ body{
     font-family: chirp-bold;
     font-size: 14px;
     margin-right: 1%;
-    margin-left: 8.5%;
+    margin-left: 2%;
     white-space: nowrap;
   }
   
   .user-name-p {
     margin-right: 1%;
     font-family: chirp-medium;
+    color: #919090;
   }
 
   .users-tweet {
     display: block;
+    word-wrap: break-word;
+    margin-left: 2%;
   }
   
   .tweet-icons i {
@@ -90,9 +102,27 @@ body{
     margin-left: 3%;
 }
 
-.unfollow-btn button{
-  position: absolute;
-  margin-left: 73%;
+.follow-btn {
+  position: fixed;
+  font-family: chirp-bold;
+  width: 250px;
+  height: 70px;
+  border-radius: 100px;
+  border: 1px solid rgb(71, 71, 71);
+  background-color: black;
+  color: white;
+  margin-left: 74%;
   margin-top: -10%;
+  padding: 1%;
+}
 
+.btn-outline-danger {
+  position: fixed;
+  font-family: chirp-bold;
+  width: 250px;
+  height: 70px;
+  border-radius: 100px;
+  border: 1px solid rgb(71, 71, 71);
+  margin-left: 74%;
+  margin-top: -10%;
 }
