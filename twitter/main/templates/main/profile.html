@@ -39,7 +39,11 @@
       {% for tweet in tweets %}
         <div class="tweet">
           <div class="tweet-header">
+            {% if profile.profile_pic %}
             <img class="profile-pic-t" src="{{ profile.profile_pic.url }}" alt="">
+            {% else %}
+            <img class="profile-pic-t" src="{% static 'images/egg.png' %}" alt="Default Profile Picture">
+            {% endif %}
             <span class="real-name-p">{{ tweet.user.first_name }} {{ tweet.user.last_name }}</span>
             <span class="user-name-p">@{{ tweet.user }}</span>
             <span class="time-posted-p">{{ tweet.created_at | date:"H:i M d, Y" }}</span>
@@ -47,14 +51,18 @@
           <div class="tweet-body">
             <span class="users-tweet">{{ tweet.body | safe }}</span>
           </div>
-          <div class="tweet-icons">
+          <span class="other-tweets-icons">
             <i class="far fa-comment"></i>
             <i class="fas fa-retweet"></i>
             <i class="far fa-heart"></i>
             <i class="fas fa-chart-bar"></i>
             <i class="far fa-bookmark"></i>
-            <i class="fas fa-share-square"></i>
-          </div>
+            &nbsp;
+            <a href="{% url 'show_tweet' tweet.id %}"><i class="fas fa-share-square"></i></a>
+            {% if request.user.profile.user == profile.user %}
+            <a href="{% url 'delete_tweet' tweet.id %}"><i class="fas fa-trash-alt"></i></a>
+            {% endif %}
+          </span>
         </div>
       {% endfor %}
     {% endif %}

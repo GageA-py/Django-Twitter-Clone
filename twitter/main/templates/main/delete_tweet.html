@@ -54,9 +54,7 @@
       <i class="far fa-heart"></i>
       <i class="fas fa-chart-bar"></i>
       <i class="far fa-bookmark"></i>
-      {% if tweet.user == request.user %}
-            <a href="{% url 'delete_tweet' tweet.id %}"><i class="fas fa-trash-alt"></i></a>
-      {% endif %}
+      <a href="{% url 'delete_tweet' tweet.id %}"><i class="fas fa-trash-alt"></i></a>
     </span>
   </div>
   
@@ -100,6 +98,3 @@
 </div>
 <script src="{% static '/js/dashboard.js' %}"></script>
 {% endblock %}
-
-
-

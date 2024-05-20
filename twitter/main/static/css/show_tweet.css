@@ -6,3 +6,7 @@
 .users-tweet i{
     border-bottom: 1px solid rgb(71, 71, 71);
 }
+
+.fa-trash-alt{
+    color: red;
+}

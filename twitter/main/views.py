@@ -68,3 +68,14 @@ def show_tweet(request, pk):
     else:   
         messages.success("That tweet does not exist...")
         return redirect('home')
+
+def delete_tweet(request, pk):
+    if request.user.is_authenticated:
+        tweet = get_object_or_404(Tweet, id=pk)
+        # Check if you own the tweet
+        if request.user.username == tweet.user.username:
+            messages.success(request, ("Deleted tweet."))
+            return redirect(request.META.get("HTTP_REFERER"))
+        else:   
+            messages.success(request, ("That tweet does not exist..."))
+            return redirect(request.META.get("HTTP_REFERER"))

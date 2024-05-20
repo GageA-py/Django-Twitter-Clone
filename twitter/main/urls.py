@@ -9,6 +9,7 @@ urlpatterns = [
     path("dashboard/", views.dashboard, name="dashboard"),
     path("profile/<int:pk>", views.profile, name="profile"),
     path("show_tweet/<int:pk>", views.show_tweet, name="show_tweet"),
+    path("delete_tweet/<int:pk>", views.delete_tweet, name="delete_tweet")
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
