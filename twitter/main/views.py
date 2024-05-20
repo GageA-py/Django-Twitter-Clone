@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.shortcuts import redirect
+from django.shortcuts import redirect, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from members.models import Profile
 from .forms import CreateNewList 
@@ -61,3 +61,10 @@ def profile(request, pk):
         messages.success(request, "You must be logged in to view this page.")
         return redirect('login')
 
+def show_tweet(request, pk):
+    tweet = get_object_or_404(Tweet, id=pk)
+    if tweet:
+        return render(request, 'main/show_tweet.html', {"profile": profile, "tweet": tweet})
+    else:   
+        messages.success("That tweet does not exist...")
+        return redirect('home')
