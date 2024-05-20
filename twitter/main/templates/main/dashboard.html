@@ -104,9 +104,10 @@
       <i class="far fa-heart"></i>
       <i class="fas fa-chart-bar"></i>
       <i class="far fa-bookmark"></i>
-      <i class="fas fa-share-square"></i>
+      &nbsp;
+      <a href="{% url 'show_tweet' tweet.id %}"><i class="fas fa-share-square"></i></a>
     </span>
-    <a href="{% url 'show_tweet' tweet.id %}">Share</a>
+   
   </div>
     {% endfor %}
   </div>

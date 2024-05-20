@@ -1,5 +1,8 @@
-.user-info {
-    margin-top: 10%;
-    height: 80%;
-    border-top: 1px solid rgb(71, 71, 71);
+.share-tweet-info {
+    height: 20%;
+    border: 1px solid rgb(71, 71, 71);
+}
+
+.users-tweet i{
+    border-bottom: 1px solid rgb(71, 71, 71);
 }

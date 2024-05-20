@@ -38,8 +38,28 @@
   </div>
 
   <div class="middle-sect">
-    {{ tweet.body}}
+    <div class="share-tweet-info">
+    {% if tweet.user.profile.profile_pic %}
+    <img class="profile-pic-t" src="{{ tweet.user.profile.profile_pic.url }}" alt="Profile Picture">
+    {% endif %}
+    <span class="real-name">{{ tweet.user.first_name }} {{ tweet.user.last_name }}</span>
+    <span class="user-name">@{{ tweet.user }}</span>
+    <span class="time-posted">{{ tweet.created_at | date:"H:i  M d, Y"}}</span>
+    <br>
+    <span class="users-tweet">{{ tweet.body | safe }}</span>
+    <br>
+    <span class="other-tweets-icons">
+      <i class="far fa-comment"></i>
+      <i class="fas fa-retweet"></i>
+      <i class="far fa-heart"></i>
+      <i class="fas fa-chart-bar"></i>
+      <i class="far fa-bookmark"></i>
+      <i class="fas fa-share-square"></i>
+    </span>
   </div>
+  
+  </div>
+
 <div class="third-sect">
   
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
