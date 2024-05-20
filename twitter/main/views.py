@@ -80,3 +80,31 @@ def delete_tweet(request, pk):
         else:   
             messages.success(request, ("That tweet does not exist..."))
             return redirect(request.META.get("HTTP_REFERER"))
+
+def edit_tweet(request, pk):
+    if request.user.is_authenticated:
+        tweet = get_object_or_404(Tweet, id=pk)
+        # Check if you own the tweet
+        if request.user.username == tweet.user.username:
+            form = TweetForm(request.POST or None, instance=tweet)
+            form.fields['body'].widget.attrs['placeholder'] = 'Edit your tweet here...'
+            default_image_url = static('members/images/egg.jpg')
+
+            if request.method == "POST":
+                if form.is_valid():
+                    tweet = form.save(commit=False)
+                    tweet.user = request.user
+                    tweet.save()
+                    return redirect('dashboard')
+            else:
+                # Set custom placeholder text
+
+                return render(request, "main/edit_tweet.html", {"form": form, "tweet": tweet})
+            
+        else:   
+            messages.success(request, ("You don't own that."))
+            return redirect('dashboard')
+    
+    else:
+        return redirect('home')
+

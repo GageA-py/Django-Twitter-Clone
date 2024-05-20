@@ -56,11 +56,33 @@
       <i class="far fa-bookmark"></i>
       {% if tweet.user == request.user %}
             <a href="{% url 'delete_tweet' tweet.id %}"><i class="fas fa-trash-alt"></i></a>
-            <a href="{% url 'edit_tweet' tweet.id %}"><i class="fas fa-edit">Edit Tweet</i></a>
+            <a href="{% url 'edit_tweet' tweet.id %}"><i class="fas fa-edit"></i></a>
       {% endif %}
     </span>
   </div>
-  
+  {% if form %}
+  <form method="POST" class="form-with-profile-pic" id="tweet-form" width="80%">
+    {% csrf_token %}
+    <div class="form-group">
+      {% if request.user.profile.profile_pic %}
+      <img class="profile-pic-form" src="{{ request.user.profile.profile_pic.url }}" alt="Profile Picture">
+      {% else %}
+      <img class="profile-pic-t" src="{% static 'images/egg.png' %}" alt="Default Profile Picture">
+      {% endif %}
+      {{ form.body.label_tag }}
+      <textarea id="tweet-body" class="form-control tweet-input" name="body" rows="1" placeholder="Edit Tweet..." style="width: 70%; background-color: black;"></textarea>
+      {{ form.body.errors }} <!-- Display field errors if any -->
+      <span class="tweet-icons">
+        <i class="fas fa-image"></i>
+        <i class="fas fa-list"></i>
+        <i class="fas fa-smile"></i>
+        <i class="fas fa-map-marker-alt"></i>
+        <button type="submit" class="btn btn-secondary">Post</button>
+      </span>
+    </div>
+  </form>
+  {% endif %}
+</div>
   </div>
 
 <div class="third-sect">
